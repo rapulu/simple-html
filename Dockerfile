@@ -1,7 +1,9 @@
-FROM nginx
+FROM php
 
-COPY wrapper.sh /
+COPY . /usr/src/myapp
 
-COPY html /usr/share/nginx/html
+WORKDIR /usr/src/myapp
 
-CMD ["./wrapper.sh"]
+EXPOSE 8000
+
+CMD ["php", "./index.php"]
